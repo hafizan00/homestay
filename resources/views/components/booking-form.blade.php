@@ -1,47 +1,78 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Update Password') }}
+            {{ __('Tempahan penginapan di Inap Desa') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
+            {{ __('Sila isi maklumat dibawah.') }}
         </p>
     </header>
 
-    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('book.create') }}" class="mt-6 space-y-6">
         @csrf
-        @method('put')
+        @method('post')
 
-        <div>
-            <x-input-label for="current_password" :value="__('Current Password')" />
-            <x-text-input id="current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
-            <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
+        <div class="flex flex-row items-center gap-4">
+            <div>
+                <x-input-label for="full_name" :value="__('Nama Penuh')" />
+                <x-text-input id="full_name" name="full_name" type="text" class="mt-1 block w-full"
+                    autocomplete="full_name" />
+                <x-input-error :messages="$errors->createBooking->get('full_name')" class="mt-2" />
+            </div>
+
+            <div>
+                <x-input-label for="email" :value="__('Email')" />
+                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
+                    required autofocus />
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            </div>
         </div>
 
+        <div class="flex flex-row items-center gap-4">
+            <div>
+                <x-input-label for="adult_count" :value="__('Bilangan Dewasa')" />
+                <x-text-input id="adult_count" name="adult_count" type="number" min="0" max="5"
+                    class="mt-1 block w-full" autocomplete="adult_count" />
+                <x-input-error :messages="$errors->createBooking->get('adult_count')" class="mt-2" />
+            </div>
+            <div>
+                <x-input-label for="child_count" :value="__('Bilangan Kanak-kanak')" />
+                <x-text-input id="child_count" name="child_count" type="number" min="0" max="5"
+                    class="mt-1 block w-full" autocomplete="child_count" />
+                <x-input-error :messages="$errors->createBooking->get('child_count')" class="mt-2" />
+            </div>
+            <div>
+                <x-input-label for="check_in" :value="__('Mula')" />
+                <x-text-input id="check_in" name="check_in" type="date" class="mt-1 block w-full"
+                    autocomplete="check_in" />
+                <x-input-error :messages="$errors->createBooking->get('check_in')" class="mt-2" />
+            </div>
+            <div>
+                <x-input-label for="check_out" :value="__('Akhir')" />
+                <x-text-input id="check_out" name="check_out" type="date" class="mt-1 block w-full"
+                    autocomplete="check_out" />
+                <x-input-error :messages="$errors->createBooking->get('check_out')" class="mt-2" />
+            </div>
+        </div>
         <div>
-            <x-input-label for="password" :value="__('New Password')" />
-            <x-text-input id="password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
+            <x-input-label for="purpose" :value="__('Tujuan')" />
+            <x-text-input id="purpose" name="purpose" type="text" class="mt-1 block w-full"
+                autocomplete="purpose" />
+            <x-input-error :messages="$errors->createBooking->get('purpose')" class="mt-2" />
         </div>
 
-        <div>
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-            <x-text-input id="password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
-        </div>
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
 
-            @if (session('status') === 'password-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
-                >{{ __('Saved.') }}</p>
+
+
+        <div class="flex items-center justify-center gap-4">
+            <x-primary-button>
+                {{ __('Tempah Sekarang') }}
+            </x-primary-button>
+            @if (session('status') === 'booking-created')
+                <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
+                    class="text-sm text-gray-600">{{ __('Saved.') }}</p>
             @endif
         </div>
     </form>
