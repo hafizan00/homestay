@@ -17,21 +17,22 @@ class BookController extends Controller
      */
     public function create(Request $request)
     {
-        $request['price'] = 150;
-        // $validated = $request->validateWithBag('createBooking', [
-        //     'full_name'     => ['bail', 'required', 'string'],
-        //     'email'         => ['bail', 'required'],
-        //     'adult_count'   => ['bail', 'required', 'between:0,5'],
-        //     'child_count'   => ['bail', 'required', 'between:0,5'],
-        //     'check_in'      => ['bail', 'required', 'date'],
-        //     'check_out'     => ['bail', 'required', 'date'],
-        //     'purpose'       => ['bail', 'required', 'string'],
-        //     'price'         => ['bail', 'required', 'integer'],
-        // ]);
+        $request['price'] = 200;
+        $validated = $request->validateWithBag('createBooking', [
+            'full_name'     => ['bail', 'required', 'string'],
+            'email'         => ['bail', 'required'],
+            'adult_count'   => ['bail', 'required', 'between:0,5'],
+            'child_count'   => ['bail', 'required', 'between:0,5'],
+            'check_in'      => ['bail', 'required', 'date'],
+            'check_out'     => ['bail', 'required', 'date'],
+            'purpose'       => ['bail', 'required', 'string'],
+            'price'         => ['bail', 'required', 'integer'],
+        ]);
 
-        Booking::create($request->all());
+        $booking = Booking::make($request->all());
 
-        return back()->with('status', 'booking-created');
+        return view('payment.index', compact('booking'))->with('status', 'booking-created');
+        // return back()->with('status', 'booking-created');
     }
 
     /**
@@ -42,16 +43,6 @@ class BookController extends Controller
      */
     public function update(Request $request)
     {
-        // dd($request);
-
-        // $validated = $request->validateWithBag('updatePassword', [
-        //     'current_password' => ['required', 'current_password'],
-        //     'password' => ['required', Password::defaults(), 'confirmed'],
-        // ]);
-
-        // $request->user()->update([
-        //     'password' => Hash::make($validated['password']),
-        // ]);
 
         return back()->with('status', 'booking-updated');
     }
