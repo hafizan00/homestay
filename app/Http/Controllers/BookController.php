@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Book;
 
 class BookController extends Controller
 {
@@ -15,6 +16,7 @@ class BookController extends Controller
      */
     public function create(Request $request)
     {
+        $request->price = 150;
         $validated = $request->validateWithBag('createBooking', [
             'full_name'     => ['bail', 'required', 'string'],
             'email'         => ['bail', 'required'],
@@ -23,15 +25,10 @@ class BookController extends Controller
             'check_in'      => ['bail', 'required', 'date'],
             'check_out'     => ['bail', 'required', 'date'],
             'purpose'       => ['bail', 'required', 'string'],
+            'price'         => ['bail', 'required', 'integer'],
         ]);
 
-        $request->price = 150;
-
-        dd($validated);
-
-        // $request->user()->update([
-        //     'password' => Hash::make($validated['password']),
-        // ]);
+        Book::create($validated);
 
         return back()->with('status', 'booking-created');
     }
