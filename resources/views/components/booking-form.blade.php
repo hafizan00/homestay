@@ -9,9 +9,9 @@
         </p>
     </header>
 
-    <form method="post" action="{{ route('book.create') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('payment.index') }}" class="mt-6 space-y-6">
         @csrf
-        @method('post')
+        @method('get')
 
         <div class="flex flex-row items-center gap-4">
             <div>

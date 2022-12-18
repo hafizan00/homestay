@@ -18,7 +18,7 @@ class BookController extends Controller
     public function create(Request $request)
     {
         $request['price'] = 200;
-        $validated = $request->validateWithBag('createBooking', [
+        $request->validateWithBag('createBooking', [
             'full_name'     => ['bail', 'required', 'string'],
             'email'         => ['bail', 'required'],
             'adult_count'   => ['bail', 'required', 'between:0,5'],
@@ -29,9 +29,9 @@ class BookController extends Controller
             'price'         => ['bail', 'required', 'integer'],
         ]);
 
-        $booking = Booking::make($request->all());
+        // $booking = Booking::make($request->all());
 
-        return view('payment.index', compact('booking'))->with('status', 'booking-created');
+        return view('payment.index', compact('request'))->with('status', 'booking-created');
         // return back()->with('status', 'booking-created');
     }
 

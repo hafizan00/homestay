@@ -20,22 +20,50 @@
                             </p>
                         </header>
 
+                        {{-- {{ dd($request) }} --}}
+
                         <div>
                             <div>
+                                <x-input-label for="full_name" :value="__('Nama Penuh')" />
+                                {{ $request->get('full_name') }}
+                            </div>
+                            <div>
+                                <x-input-label for="email" :value="__('Emel')" />
+                                {{ $request->get('email') }}
+                            </div>
+                            <div>
                                 <x-input-label for="adult_count" :value="__('Bilangan Dewasa')" />
-                                {{-- {{ dd($booking) }} --}}
-                                {{ $booking->find('4') }}
+                                {{ $request->get('adult_count') }}
+                            </div>
+                            <div>
+                                <x-input-label for="child_count" :value="__('Bilangan Kanak-kanak')" />
+                                {{ $request->get('child_count') }}
+                            </div>
+                            <div>
+                                <x-input-label for="check_in" :value="__('Check In')" />
+                                {{ $request->get('check_in') }}
+                            </div>
+                            <div>
+                                <x-input-label for="check_out" :value="__('Check Out')" />
+                                {{ $request->get('check_out') }}
+                            </div>
+                            <div>
+                                <x-input-label for="price" :value="__('Harga')" />
+                                {{ $request->get('price') }}
+                            </div>
+                            <div>
+                                <x-input-label for="purpose" :value="__('Tujuan')" />
+                                {{ $request->get('purpose') }}
                             </div>
                         </div>
 
-                        <x-danger-button x-data=""
+                        <x-primary-button x-data=""
                             x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">
-                            {{ __('Pilih') }}</x-danger-button>
+                            {{ __('Pilih') }}</x-primary-button>
 
                         <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
-                            <form method="post"
-                            class="p-6">
-                            {{-- action="{{ route('payment.online') }}" --}}
+                            <form method="post" class="p-6">
+                                {{-- action="{{ route('payment.online') }}" --}}
                                 @csrf
                                 @method('post')
 

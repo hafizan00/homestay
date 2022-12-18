@@ -15,7 +15,7 @@ class PaymentController extends Controller
      */
     public function index(Request $request)
     {
-        return view('payment.index');
+        return view('payment.index', compact('request'));
     }
 
     /**
