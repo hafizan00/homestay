@@ -14,13 +14,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->string('full_name');
             $table->string('email');
             $table->integer('adult_count');
             $table->integer('child_count');
-            $table->integer('price');
+            $table->integer('price')->default(100);
             $table->string('purpose');
             $table->dateTime('check_in');
             $table->dateTime('check_out');
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('bookings');
     }
 };
