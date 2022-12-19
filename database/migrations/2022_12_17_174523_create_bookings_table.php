@@ -16,6 +16,7 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(User::class);
             $table->string('full_name');
             $table->string('email');
             $table->integer('adult_count');

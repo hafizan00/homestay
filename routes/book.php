@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('guest')->group(function () {
 });
 
-Route::middleware('auth')->group(function () {
-    Route::post('book', [BookController::class, 'create'])->name('book.create');
-    Route::put('book', [BookController::class, 'update'])->name('book.update');
+Route::middleware('auth')->prefix('booking')->group(function () {
+    Route::get('/', [BookController::class, 'index'])->name('Booking.index');
+    Route::get('/{booking}', [BookController::class, 'show'])->name('booking.show');
+    Route::post('create', [BookController::class, 'create'])->name('booking.create');
+    Route::put('update', [BookController::class, 'update'])->name('booking.update');
 });

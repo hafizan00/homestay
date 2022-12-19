@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Booking;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -27,6 +28,7 @@ class BookingFactory extends Factory
         $today = now();
         $until = $today->addDay(2);
         return [
+            "user_id"       => User::inRandomOrder()->first()->id,
             "full_name"     => fake()->name(),
             "email"         => fake()->safeEmail(),
             "adult_count"   => fake()->numberBetween(1, 5),
