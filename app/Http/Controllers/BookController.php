@@ -45,7 +45,9 @@ class BookController extends Controller
         $request['price'] = 200;
         $request->validateWithBag('createBooking', [
             'full_name'     => ['bail', 'required', 'string'],
-            'email'         => ['bail', 'required'],
+            'email'         => ['bail', 'required', 'string'],
+            'no_ic'         => ['bail', 'required', 'string'],
+            'address'       => ['bail', 'required', 'string'],
             'adult_count'   => ['bail', 'required', 'between:0,5'],
             'child_count'   => ['bail', 'required', 'between:0,5'],
             'check_in'      => ['bail', 'required', 'date'],

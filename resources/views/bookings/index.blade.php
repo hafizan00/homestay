@@ -45,6 +45,14 @@
                                 </p>
                             </header>
                             <p class="mt-1 text-sm text-gray-600">
+                                {{ $booking->address }}
+                            </p>
+
+                            <p class="mt-1 text-sm text-gray-600">
+                                {{ $booking->ic_no }}
+                            </p>
+
+                            <p class="mt-1 text-sm text-gray-600">
                                 {{ $booking->adult_count }}
                             </p>
                             <p class="mt-1 text-sm text-gray-600">

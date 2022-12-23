@@ -36,7 +36,9 @@ class BookingFactory extends Factory
             "check_in"      => $today,
             "check_out"     => $until,
             "price"         => fake()->numberBetween(100, 300),
-            "purpose"       => fake()->sentence()
+            "purpose"       => fake()->sentence(),
+            "no_ic"         => fake()->sentence(),
+            "address"       => fake()->sentence()
         ];
     }
 }
