@@ -22,6 +22,21 @@
             </div>
 
             <div>
+                <x-input-label for="phone" :value="__('Nombor Telefon')" />
+                <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full"
+                    autocomplete="phone" />
+                <x-input-error :messages="$errors->createBooking->get('phone')" class="mt-2" />
+            </div>
+
+            <div>
+                <x-input-label for="address" :value="__('Alamat')" />
+                <x-text-input id="address" name="address" type="text" class="mt-1 block w-full"
+                    autocomplete="address" />
+                <x-input-error :messages="$errors->createBooking->get('address')" class="mt-2" />
+            </div>
+
+
+            <div>
                 <x-input-label for="email" :value="__('Email')" />
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
                     required autofocus />
@@ -61,12 +76,7 @@
                 <x-input-error :messages="$errors->createBooking->get('price', 100)" class="mt-2" />
             </div>
         </div>
-        <div>
-            <x-input-label for="purpose" :value="__('Tujuan')" />
-            <x-text-input id="purpose" name="purpose" type="text" class="mt-1 block w-full"
-                autocomplete="purpose" />
-            <x-input-error :messages="$errors->createBooking->get('purpose')" class="mt-2" />
-        </div>
+        
 
 
 

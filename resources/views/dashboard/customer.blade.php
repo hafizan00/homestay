@@ -24,7 +24,7 @@
                                 @include('components.input-label', ['value' => $booking->address])
                             </div>
                             <div class="max-w-xl">
-                                aaaa
+                                @include('components.input-label', ['value' => $booking->phone])
                             </div>
                             <div class="max-w-xl">
                                 @include('components.input-label', ['value' => $booking->email])

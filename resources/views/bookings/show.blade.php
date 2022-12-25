@@ -38,6 +38,18 @@
                                 </div>
                                 <div class="col">
                                     <div>
+                                        <x-input-label for="email" :value="__('Emel')" />
+                                        {{ $booking->phone }}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div>
+                                        <x-input-label for="email" :value="__('Emel')" />
+                                        {{ $booking->address}}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div>
                                         <x-input-label for="adult_count" :value="__('Bilangan Dewasa')" />
                                         {{ $booking->adult_count }}
                                     </div>
@@ -51,40 +63,6 @@
                             </div>
 
 
-                            {{-- <div>
-                            <div>
-                                <x-input-label for="full_name" :value="__('Nama Penuh')" />
-                                {{ $booking->full_name }}
-                            </div>
-                            <div>
-                                <x-input-label for="email" :value="__('Emel')" />
-                                {{ $booking->email }}
-                            </div>
-                            <div>
-                                <x-input-label for="adult_count" :value="__('Bilangan Dewasa')" />
-                                {{ $booking->adult_count }}
-                            </div>
-                            <div>
-                                <x-input-label for="child_count" :value="__('Bilangan Kanak-kanak')" />
-                                {{ $booking->child_count }}
-                            </div>
-                            <div>
-                                <x-input-label for="check_in" :value="__('Check In')" />
-                                {{ $booking->check_in }}
-                            </div>
-                            <div>
-                                <x-input-label for="check_out" :value="__('Check Out')" />
-                                {{ $booking->check_out }}
-                            </div>
-                            <div>
-                                <x-input-label for="price" :value="__('Harga')" />
-                                {{ $booking->price }}
-                            </div>
-                            <div>
-                                <x-input-label for="purpose" :value="__('Tujuan')" />
-                                {{ $booking->purpose }}
-                            </div>
-                        </div> --}}
 
                             <x-primary-button x-data=""
                                 x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">

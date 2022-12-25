@@ -15,13 +15,15 @@ class Booking extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'user_id',
         'full_name',
         'email',
+        'phone',
+        'address',
         'adult_count',
         'child_count',
         'check_in',
         'check_out',
-        'purpose',
     ];
 
     /**

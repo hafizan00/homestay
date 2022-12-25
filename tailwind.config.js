@@ -5,7 +5,8 @@ module.exports = {
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
+        './resources/**/*.blade.php',
+        './resources/**/*.jpg',
     ],
 
     theme: {
@@ -14,8 +15,9 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
             backgroundImage: {
-                'backdrop': "url('/images/homestay.jgp')",
-              }
+                'homestay': "url('https://homestay.test/images/homestay.jpg')",
+                'homestayz': "url('https://homestay.test/images/homestayz.jpg')",
+            },
         },
     },
 

@@ -18,11 +18,12 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->string('full_name');
+            $table->string('phone');
+            $table->string('address');
             $table->string('email');
             $table->integer('adult_count');
             $table->integer('child_count');
             $table->integer('price')->default(100);
-            $table->string('purpose');
             $table->dateTime('check_in');
             $table->dateTime('check_out');
             $table->timestamps();
