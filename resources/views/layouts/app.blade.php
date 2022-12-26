@@ -17,7 +17,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div @class(['min-h-screen bg-gray-100', 'bg-gradient-to-r from-cyan-500 to-blue-500'])>
+    <div @class(['bg-neutral-200'])>
         @include('layouts.navigation')
         <!-- Page Heading -->
         @if (isset($header))
