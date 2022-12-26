@@ -69,14 +69,14 @@
                     autocomplete="check_out" />
                 <x-input-error :messages="$errors->createBooking->get('check_out')" class="mt-2" />
             </div>
-            <div class="hidden">
+            <div>
                 <x-input-label for="price" :value="__('Harga')" />
                 <x-text-input id="price" name="price" type="number" class="mt-1 block w-full"
                     autocomplete="price" />
                 <x-input-error :messages="$errors->createBooking->get('price', 100)" class="mt-2" />
             </div>
         </div>
-        
+
 
 
 

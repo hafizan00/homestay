@@ -1,5 +1,5 @@
 @props([
-    'test' => asset('images/homestay.jpg')
+    'test' => asset('images/homestayz.jpg')
 ])
 <div @class([
     'min-h-screen',
@@ -7,7 +7,7 @@
     'sm:justify-center',
     'items-center',
     'pt-6 sm:pt-0',
-    'bg-homestayz bg-cover',
+    'bg-homestayz bg-cover'
 ])>
 
     {{ $slot }}

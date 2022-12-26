@@ -35,6 +35,9 @@
                             <div class="max-w-xl">
                                 @include('components.input-label', ['value' => $booking->updated_at])
                             </div>
+                            <div class="max-w-xl">
+                                @include('components.input-label', ['value' => $booking->price])
+                            </div>
                         </div>
                     </div>
                 @endforeach

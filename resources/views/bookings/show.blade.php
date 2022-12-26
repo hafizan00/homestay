@@ -60,6 +60,13 @@
                                         {{ $booking->check_in }}
                                     </div>
                                 </div>
+
+                                <div class="col">
+                                    <div>
+                                        <x-input-label for="check_in" :value="__('Check In')" />
+                                        {{ $booking->price }}
+                                    </div>
+                                </div>
                             </div>
 
 

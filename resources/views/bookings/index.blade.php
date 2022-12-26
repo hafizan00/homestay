@@ -62,6 +62,9 @@
                                 {{ $booking->check_out->format('H:g A d M Y') }}
                             </p>
                             <p class="mt-1 text-sm text-gray-600">
+                                {{ $booking->price}}
+                            </p>
+                            <p class="mt-1 text-sm text-gray-600">
                                 {{ __('Senarai Tempahan') }}
                             </p>
 
