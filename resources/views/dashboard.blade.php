@@ -1,6 +1,11 @@
 <x-app-layout>
-
     @if (auth()->user()->is_admin)
+        @include('dashboard.admin')
+    @else
+        @include('dashboard.guest')
+    @endif
+
+    {{-- @if (auth()->user()->is_admin)
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('HOMESTAY INAP DESA SURIA') }}
@@ -97,7 +102,6 @@
                 </div>
             </div>
         </div>
-    @endif
+    @endif --}}
 
 </x-app-layout>
-
